@@ -39,7 +39,7 @@ _cards = []
 
 for i, c in enumerate(['red', 'blue', 'brown']):
     for j, s in enumerate(['a', 'b', 'c', 'd', 'e']):
-        _cards.append(Appearance(c, s))
+        _cards.append(Appearance(color=c, shape=s))
 
 ci = iter(_cards)
 
