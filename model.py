@@ -25,8 +25,12 @@ class Player:
         for i, m in enumerate(self.stomach.mash):
             if m is not None:
                 e = m.effects.effect[i]
+                # 色付き機能の場合 tuple にしているので
                 if isinstance(e, tuple):
-                    self.hp += e[0]
+                    color = e[1]
+                    # 胃袋に持ってる色があるか
+                    if color in [m.appearance.color for m in self.stomach.mash if m is not None]:
+                        self.hp += e[0]
                 else:
                     self.hp += e
 
