@@ -1,0 +1,59 @@
+@startuml
+
+class Player {
+  hp
+  Stomach
+
+  eat(Mash)
+  effect()
+  is_dead():Bool
+}
+class Stomach {
+  day1Mash
+  day2Mash
+  day3Mash
+
+  push(Mash)
+  digest()
+}
+
+Player *-- Stomach
+
+Stomach - Mash
+
+
+class Effect {
+  hpDiff
+  color:Optional
+}
+
+class Effects {
+  day1Effect
+  day2Effect
+  day3Effect
+}
+
+Effects *-- Effect
+
+class Appearance {
+  shape
+  color
+}
+
+class Mash {
+  Appearance
+  Effects
+}
+
+Mash *-- Appearance
+Mash *-- Effects
+
+class Deck {
+  Appearance[]
+  iter():Appearance
+}
+
+Deck *-- Appearance
+
+
+@enduml
