@@ -2,9 +2,8 @@ import sys
 from logging import basicConfig, getLogger, INFO, DEBUG
 
 import input
-from model import (Player, Deck)
 
-basicConfig(level=DEBUG)
+basicConfig(level=INFO)
 logger = getLogger(__name__)
 
 
