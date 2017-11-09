@@ -61,7 +61,7 @@ def log_state(iter_num, players):
         logger.debug('%s, %s', iter_num, p)
 
 
-if __name__ == '__main__':
+def simulate():
 
     mashes = input.init_mashes()
     deck = input.init_deck(mashes)
@@ -78,9 +78,20 @@ if __name__ == '__main__':
         if is_dead(players):
             log_state(d, players)
             print("Dead " + str(d))
-            sys.exit()
+            return
         #log_state(d, players)
         digest(players)
 
     log_state(7, players)
     print("Survived")
+
+if __name__ == '__main__':
+    """
+    python3 main.py <count>
+    """
+    count = 1
+    if len(sys.argv) > 1:
+        count = int(sys.argv[1])
+
+    for i in range(0, count):
+        simulate()
